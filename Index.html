@@ -1,0 +1,160 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Erde45_bingo</title>
+<body>
+ <div id="box">
+  <div id="YL">You Lost!</div>
+  <div id="YW">You Win! </div>
+  <div id="WG">Wait for new Game... </div>
+ </div>
+ <div id="roleta"></div>
+ <div id="informacoes">
+  <table>
+   <tr>
+    <td align="right" width="50%">Jogadores:</td>
+    <td align="left" width="50%"  id="jogadores" title="Quantidades de jogadores Online.">Carregando...</td>
+   </tr>
+   
+   <tr>
+    <td align="right">Possiveis Ganhadores:</td>
+    <td align="left" id="pGanhadores"  title="Jogadores que matematicamente j� ganharam.">Carregando...</td>
+   </tr>
+   <tr>
+    <td align="right">Qtd. N. Sorteados:</td>
+    <td align="left" id="numeros_sorteados"  title="Quantidade de numeros sorteados.">Carregando...</td>
+   </tr>
+  </table>
+ </div> 
+ <div id="buttons">
+  <div>
+   <button id="btn-bingo" onclick="sendBingo()">Bingo</button>
+  </div>
+ </div>
+ <div id="cartela" >
+  <table>
+   <tr>
+    <th width="20%">B</th>
+    <th width="20%">I</th>
+    <th width="20%">N</th>
+    <th width="20%">G</th>
+    <th width="20%">O</th>
+   </tr>
+   <tr>
+    <td data-square="1">&nbsp;</td>
+    <td data-square="2">&nbsp;</td>
+    <td data-square="3">&nbsp;</td>
+    <td data-square="4">&nbsp;</td>
+    <td data-square="5">&nbsp;</td>
+   </tr>
+   <tr>
+    <td data-square="6">&nbsp;</td>
+    <td data-square="7">&nbsp;</td>
+    <td data-square="8">&nbsp;</td>
+    <td data-square="9">&nbsp;</td>
+    <td data-square="10">&nbsp;</td>
+   </tr>      
+   <tr>
+    <td data-square="11">&nbsp;</td>
+    <td data-square="12">&nbsp;</td>
+    <td data-square="13">&nbsp;</td>
+    <td data-square="14">&nbsp;</td>
+    <td data-square="15">&nbsp;</td>
+   </tr>
+   <tr>
+    <td data-square="16">&nbsp;</td>
+    <td data-square="17">&nbsp;</td>
+    <td data-square="18">&nbsp;</td>
+    <td data-square="19">&nbsp;</td>
+    <td data-square="20">&nbsp;</td>
+   </tr>
+   <tr>
+    <td data-square="21">&nbsp;</td>
+    <td data-square="22">&nbsp;</td>
+    <td data-square="23">&nbsp;</td>
+    <td data-square="24">&nbsp;</td>
+    <td data-square="25">&nbsp;</td>
+   </tr>
+    <tr>
+     <td data-square="26">&nbsp;</td>
+     <td data-square="27">&nbsp;</td>
+     <td data-square="28">&nbsp;</td> 
+     <td data-square="29">&nbsp;</td>
+     <td data-square="30">&nbsp;</td>
+    </tr>
+    <tr>
+    <td data-square="31">&nbsp;</td>
+    <td data-square="32">&nbsp;</td>
+    <td id="free">Free</td>
+    <td data-square="33">&nbsp;</td>
+    <td data-square="34">&nbsp;</td> 
+   </tr>
+   <tr>
+    <td data-square="35">&nbsp;</td> 
+    <td data-square="36">&nbsp;</td>
+    <td data-square="37">&nbsp;</td>
+    <td data-square="38">&nbsp;</td> 
+    <td data-square="39">&nbsp;</td>
+   </tr>
+   <tr>
+    <td data-square="40">&nbsp;</td>
+    <td data-square="41">&nbsp;</td>
+    <td data-square="42">&nbsp;</td>
+    <td data-square="43">&nbsp;</td>
+    <td data-square="44">&nbsp;</td> 
+   </tr>
+   <tr>
+    <td data-square="45">&nbsp;</td>
+    <td data-square="46">&nbsp;</td>
+    <td data-square="47">&nbsp;</td>
+    <td data-square="48">&nbsp;</td>
+    <td data-square="49">&nbsp;</td>
+   </tr>
+   <tr>
+    <td data-square="50">&nbsp;</td>
+    <td data-square="51">&nbsp;</td>
+    <td data-square="52">&nbsp;</td>
+    <td data-square="53">&nbsp;</td>
+    <td data-square="54">&nbsp;</td>
+</tr>
+<tr>
+    <td data-square="55">&nbsp;</td>
+   <td data-square="56">&nbsp;</td>
+   <td data-square="57">&nbsp;</td>
+   <td data-square="58">&nbsp;</td>            
+   <td data-square="59">&nbsp;</td>
+  </tr>
+  <tr>
+   <td data-square="60">&nbsp;</td>
+   <td data-square="61">&nbsp;</td>
+   <td data-square="62">&nbsp;</td>
+   <td data-square="63">&nbsp;</td>
+   <td data-square="62">&nbsp;</td>
+  </tr>
+  <tr>
+   <td data-square="63">&nbsp;</td>
+  <td data-square="64">&nbsp;</td>
+  <td data-square="65">&nbsp;</td>
+  <td data-square="66">&nbsp;</td>
+  <td data-square="67">&nbsp;</td>
+</tr> 
+<tr>
+  <td data-square="68">&nbsp;</td>q
+  <td data-square="69">&nbsp;</td>
+  <td data-square="70">&nbsp;</td>
+  <td data-square="71">&nbsp;</td>
+  <td data-square="72">&nbsp;</td>
+</tr>
+<tr>
+  <td data-square="73">&nbsp;</td>
+  <td data-square="74">&nbsp;</td>
+  <td data-square="75">&nbsp;</td>
+  </tr>
+  </table>
+ </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+</script>
+<script>
+/*Roleta */
